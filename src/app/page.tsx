@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Shield, Wrench, Phone, Star, Engine, Zap, Award } from "lucide-react";
+import { ArrowRight, Shield, Wrench, Phone, Star, Car, Zap, Award, Users, Trophy, CheckCircle, Target } from "lucide-react";
 import Link from "next/link";
 
 // Mock data for featured vehicles
@@ -53,6 +53,105 @@ const services = [
     icon: <Phone className="w-12 h-12" />,
     title: "24/7 Support",
     description: "Round-the-clock customer support and roadside assistance"
+  }
+];
+
+const whyChooseUs = [
+  {
+    icon: <Trophy className="w-16 h-16" />,
+    title: "40+ Years of Excellence",
+    description: "Four decades of automotive expertise and uncompromising quality"
+  },
+  {
+    icon: <Award className="w-16 h-16" />,
+    title: "Award-Winning Designs",
+    description: "Recognized globally for innovation and engineering excellence"
+  },
+  {
+    icon: <Users className="w-16 h-16" />,
+    title: "Exclusive Ownership",
+    description: "Join an elite community of discerning automotive enthusiasts"
+  },
+  {
+    icon: <CheckCircle className="w-16 h-16" />,
+    title: "Lifetime Warranty",
+    description: "Comprehensive coverage that protects your investment forever"
+  }
+];
+
+const testimonials = [
+  {
+    name: "Marcus Blackwood",
+    title: "CEO, Blackwood Industries",
+    rating: 5,
+    content: "The Aurora EX exceeded every expectation. The attention to detail and performance is simply unmatched in the luxury automotive space.",
+    image: "/generated/testimonial-1.png"
+  },
+  {
+    name: "Isabella Chen",
+    title: "Investment Partner",
+    rating: 5,
+    content: "Aurora Motors delivers on their promise of luxury and innovation. My Genesis IV has been a masterpiece of engineering and comfort.",
+    image: "/generated/testimonial-2.png"
+  },
+  {
+    name: "Dr. James Morrison",
+    title: "Tech Entrepreneur",
+    rating: 5,
+    content: "Exceptional build quality and cutting-edge technology. The customer service experience was as impressive as the vehicle itself.",
+    image: "/generated/testimonial-3.png"
+  }
+];
+
+const companyStats = [
+  { number: "40+", label: "Years of Excellence", icon: <Trophy className="w-8 h-8" /> },
+  { number: "25K+", label: "Satisfied Customers", icon: <Users className="w-8 h-8" /> },
+  { number: "150+", label: "Global Awards", icon: <Award className="w-8 h-8" /> },
+  { number: "99.8%", label: "Customer Satisfaction", icon: <Target className="w-8 h-8" /> }
+];
+
+const technologies = [
+  {
+    icon: <Car className="w-12 h-12" />,
+    title: "Advanced Powertrains",
+    description: "Cutting-edge hybrid and electric propulsion systems"
+  },
+  {
+    icon: <Zap className="w-12 h-12" />,
+    title: "Smart Technology",
+    description: "AI-powered systems for enhanced safety and performance"
+  },
+  {
+    icon: <Shield className="w-12 h-12" />,
+    title: "Safety Innovation",
+    description: "Next-generation safety features and autonomous capabilities"
+  }
+];
+
+const awards = [
+  {
+    year: "2024",
+    title: "Luxury Car of the Year",
+    organization: "International Automotive Excellence Awards",
+    model: "Aurora EX"
+  },
+  {
+    year: "2023",
+    title: "Best Premium Electric Vehicle",
+    organization: "Green Car Awards",
+    model: "Aurora EX"
+  },
+  {
+    year: "2023",
+    title: "Design Excellence Award",
+    organization: "World Car Design Awards",
+    model: "Genesis IV"
+  },
+  {
+    year: "2022",
+    title: "Safety Innovation Award",
+    organization: "IIHS Top Safety Pick+",
+    model: "Spectre SUV"
   }
 ];
 
@@ -209,6 +308,169 @@ export default function HomePage() {
                   {service.description}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Aurora Motors Section */}
+      <section className="py-20 bg-gradient-to-b from-background via-card/20 to-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              WHY CHOOSE <span className="gold-text">AURORA MOTORS</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              When you choose Aurora Motors, you're not just buying a vehicle—you're investing in a legacy of excellence, innovation, and uncompromising luxury.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((feature, index) => (
+              <div
+                key={index}
+                className="text-center group hover:transform hover:scale-105 transition-all duration-500"
+              >
+                <div className="inline-flex items-center justify-center w-32 h-32 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Company Statistics */}
+      <section className="py-20 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              PROVEN <span className="gold-text">EXCELLENCE</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {companyStats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-4">
+                  {stat.icon}
+                </div>
+                <div className="text-4xl font-bold gold-text mb-2">{stat.number}</div>
+                <div className="text-muted-foreground text-lg">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Testimonials */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              CLIENT <span className="gold-text">TESTIMONIALS</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Don't just take our word for it. Hear from our distinguished clientele who have experienced the Aurora Motors difference.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <Card key={index} className="bg-card border-border/20 hover:border-accent/50 transition-all duration-500">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center mr-4">
+                      <Users className="w-8 h-8 text-accent" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-foreground">{testimonial.name}</h4>
+                      <p className="text-muted-foreground text-sm">{testimonial.title}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                    ))}
+                  </div>
+                  
+                  <p className="text-muted-foreground leading-relaxed italic">
+                    "{testimonial.content}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology & Innovation */}
+      <section className="py-20 bg-card/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              TECHNOLOGY & <span className="gold-text">INNOVATION</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              At the forefront of automotive innovation, Aurora Motors integrates cutting-edge technology with timeless luxury.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {technologies.map((tech, index) => (
+              <div
+                key={index}
+                className="text-center group hover:transform hover:scale-105 transition-all duration-500"
+              >
+                <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  {tech.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  {tech.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {tech.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Recognition */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              AWARDS & <span className="gold-text">RECOGNITION</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our commitment to excellence has been recognized by the most prestigious organizations in the automotive industry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {awards.map((award, index) => (
+              <Card key={index} className="bg-card border-border/20 hover:border-accent/50 transition-all duration-500 text-center">
+                <CardContent className="p-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent mb-4">
+                    <Award className="w-8 h-8" />
+                  </div>
+                  <div className="text-2xl font-bold gold-text mb-2">{award.year}</div>
+                  <h4 className="text-lg font-bold text-foreground mb-2">{award.title}</h4>
+                  <p className="text-muted-foreground text-sm mb-2">{award.organization}</p>
+                  <Badge className="bg-accent/10 text-accent border-accent/20">
+                    {award.model}
+                  </Badge>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
