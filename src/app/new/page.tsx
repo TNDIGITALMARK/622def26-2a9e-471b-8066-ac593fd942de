@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Calendar, Zap, Shield, Star, Engine, Gauge, Fuel, Users } from "lucide-react";
+import { ArrowRight, Calendar, Zap, Shield, Star, Cog, Gauge, Fuel, Users } from "lucide-react";
 import Link from "next/link";
 
 const featuredVehicles = [
@@ -69,7 +69,7 @@ const newFeatures = [
     description: "Premium materials, cutting-edge technology, and meticulous craftsmanship in every detail."
   },
   {
-    icon: <Engine className="w-8 h-8" />,
+    icon: <Cog className="w-8 h-8" />,
     title: "Performance Innovation",
     description: "Engineered for exceptional performance with advanced powertrains and precision handling."
   }
@@ -180,7 +180,7 @@ export default function NewPage() {
                   {/* Specifications */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center text-muted-foreground">
-                      <Engine className="w-5 h-5 mr-2 text-accent" />
+                      <Cog className="w-5 h-5 mr-2 text-accent" />
                       <div>
                         <div className="text-sm">{vehicle.specs.engine}</div>
                         <div className="text-xs">{vehicle.specs.power}</div>
