@@ -76,7 +76,7 @@ const allVehicles = [
     brand: "Aurora",
     year: 2024,
     price: 95500,
-    image: "/generated/aurora-ex-hero.png",
+    image: "/generated/phoenix-gt-hero.png",
     specs: { power: "720 HP", topSpeed: "210 mph", acceleration: "0-60: 2.8s" },
     rating: 4.9,
     reviews: 203,
@@ -91,7 +91,7 @@ const allVehicles = [
     brand: "Aurora",
     year: 2024,
     price: 52900,
-    image: "/generated/aurora-ex-hero.png",
+    image: "/generated/nova-hybrid-hero.png",
     specs: { power: "340 HP", mpg: "42 MPG", acceleration: "0-60: 5.1s" },
     rating: 4.6,
     reviews: 78,
@@ -106,7 +106,7 @@ const allVehicles = [
     brand: "Aurora",
     year: 2024,
     price: 72800,
-    image: "/generated/aurora-ex-hero.png",
+    image: "/generated/titan-truck-hero.png",
     specs: { power: "450 HP", towing: "11,200 lbs", acceleration: "0-60: 4.8s" },
     rating: 4.5,
     reviews: 142,
@@ -234,24 +234,25 @@ export default function SearchPage() {
   const VehicleCard = ({ vehicle }: { vehicle: Vehicle }) => {
     if (viewMode === "list") {
       return (
-        <Card className="bg-card border-border/20 hover:border-accent/50 transition-all duration-500">
-          <CardContent className="p-0">
-            <div className="flex flex-col md:flex-row">
-              <div className="relative md:w-80">
-                <div
-                  className="h-48 md:h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${vehicle.image})` }}
-                />
-                <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground">
-                  {vehicle.badge}
-                </Badge>
-              </div>
+        <Link href={`/vehicle/${vehicle.id}`} className="block">
+          <Card className="bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:shadow-lg hover:shadow-accent/10 cursor-pointer group">
+            <CardContent className="p-0">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative md:w-80">
+                  <div
+                    className="h-48 md:h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+                    style={{ backgroundImage: `url(${vehicle.image})` }}
+                  />
+                  <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground">
+                    {vehicle.badge}
+                  </Badge>
+                </div>
 
               <div className="flex-1 p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground hover:text-accent transition-colors">
-                      <Link href={`/vehicle/${vehicle.id}`}>{vehicle.name}</Link>
+                    <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">
+                      {vehicle.name}
                     </h3>
                     <p className="text-muted-foreground">{vehicle.type}</p>
                     <div className="flex items-center gap-1 mt-2">
@@ -284,16 +285,15 @@ export default function SearchPage() {
                   <Button
                     size="sm"
                     className="bg-accent text-accent-foreground hover:bg-accent/90"
-                    asChild
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                   >
-                    <Link href={`/vehicle/${vehicle.id}`}>
-                      View Details
-                    </Link>
+                    View Details
                   </Button>
                   <Button
                     size="sm"
                     variant="outline"
                     className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                   >
                     Test Drive
                   </Button>
@@ -302,33 +302,36 @@ export default function SearchPage() {
             </div>
           </CardContent>
         </Card>
+        </Link>
       );
     }
 
     return (
-      <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 overflow-hidden">
-        <div className="relative">
-          <div
-            className="h-64 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
-            style={{ backgroundImage: `url(${vehicle.image})` }}
-          />
-          <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground">
-            {vehicle.badge}
-          </Badge>
-          <Button
-            size="icon"
-            variant="secondary"
-            className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm"
-          >
-            <Heart className="w-4 h-4" />
-          </Button>
-        </div>
+      <Link href={`/vehicle/${vehicle.id}`} className="block">
+        <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 overflow-hidden hover:shadow-lg hover:shadow-accent/10 cursor-pointer">
+          <div className="relative">
+            <div
+              className="h-64 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
+              style={{ backgroundImage: `url(${vehicle.image})` }}
+            />
+            <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground">
+              {vehicle.badge}
+            </Badge>
+            <Button
+              size="icon"
+              variant="secondary"
+              className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+            >
+              <Heart className="w-4 h-4" />
+            </Button>
+          </div>
 
         <CardContent className="p-6">
           <div className="flex justify-between items-start mb-4">
             <div>
               <h3 className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-                <Link href={`/vehicle/${vehicle.id}`}>{vehicle.name}</Link>
+                {vehicle.name}
               </h3>
               <p className="text-muted-foreground">{vehicle.type}</p>
               <div className="flex items-center gap-1 mt-2">
@@ -356,22 +359,22 @@ export default function SearchPage() {
             <Button
               size="sm"
               className="flex-1 bg-accent text-accent-foreground hover:bg-accent/90"
-              asChild
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
             >
-              <Link href={`/vehicle/${vehicle.id}`}>
-                View Details
-              </Link>
+              View Details
             </Button>
             <Button
               size="sm"
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
             >
               Test Drive
             </Button>
           </div>
         </CardContent>
       </Card>
+      </Link>
     );
   };
 
