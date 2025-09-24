@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Navigation } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Shield, Wrench, Phone, Star, Car, Zap, Award, Users, Trophy, CheckCircle, Target } from "lucide-react";
 import Link from "next/link";
+import BookingForm from "@/components/booking-form";
 
 // Mock data for featured vehicles
 const featuredVehicles = [
@@ -156,6 +158,19 @@ const awards = [
 ];
 
 export default function HomePage() {
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
+  const [selectedVehicle, setSelectedVehicle] = useState<string>("");
+
+  const handleScheduleTestDrive = (vehicleModel?: string) => {
+    setSelectedVehicle(vehicleModel || "");
+    setIsBookingFormOpen(true);
+  };
+
+  const handleCloseBookingForm = () => {
+    setIsBookingFormOpen(false);
+    setSelectedVehicle("");
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -193,6 +208,8 @@ export default function HomePage() {
                 size="lg"
                 variant="outline"
                 className="border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4"
+                onClick={handleScheduleTestDrive}
+                data-phoenix-id="phoenix-1758675578579-27"
               >
                 Schedule Test Drive
               </Button>
@@ -269,6 +286,7 @@ export default function HomePage() {
                       size="sm"
                       variant="outline"
                       className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                      onClick={() => handleScheduleTestDrive(vehicle.name)}
                     >
                       Schedule Test
                     </Button>
@@ -521,6 +539,13 @@ export default function HomePage() {
           </p>
         </div>
       </footer>
+      
+      {/* Booking Form Modal */}
+      <BookingForm
+        isOpen={isBookingFormOpen}
+        onClose={handleCloseBookingForm}
+        vehicleModel={selectedVehicle}
+      />
     </div>
   );
 }
