@@ -200,9 +200,11 @@ export default function HomePage() {
               collection of premium vehicles designed for the discerning driver.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4">
-                View Models
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4" asChild>
+                <Link href="/search">
+                  View Models
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"
@@ -218,6 +220,122 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quick Navigation Section */}
+      <section className="py-20 bg-gradient-to-r from-accent/10 via-accent/5 to-accent/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              DISCOVER <span className="gold-text">AURORA MOTORS</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Explore every aspect of our luxury automotive experience, from our vehicle collection to our premium services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:transform hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  <Car className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  Vehicle Collection
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Explore our complete range of luxury vehicles, from electric sports cars to premium SUVs.
+                </p>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+                  <Link href="/search">
+                    Browse Vehicles
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:transform hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  <Users className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  Our Story
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Learn about our heritage, values, and the visionary team behind Aurora Motors.
+                </p>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+                  <Link href="/about">
+                    About Us
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:transform hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  <Wrench className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  Premium Services
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Discover our luxury services, from concierge support to expert maintenance.
+                </p>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+                  <Link href="/services">
+                    Our Services
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:transform hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  <Star className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  New Arrivals
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Discover our latest 2025 collection featuring cutting-edge innovations.
+                </p>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+                  <Link href="/new">
+                    View New Models
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            
+            <Card className="group bg-card border-border/20 hover:border-accent/50 transition-all duration-500 hover:transform hover:scale-105">
+              <CardContent className="p-8 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-500 mb-6">
+                  <Phone className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                  Get in Touch
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Connect with our team for personalized service and expert guidance.
+                </p>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full" asChild>
+                  <Link href="/contact">
+                    Contact Us
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Vehicles Section */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -225,10 +343,24 @@ export default function HomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
               FEATURED VEHICLES
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Discover our handpicked selection of premium vehicles,
               each engineered to deliver unparalleled performance and luxury.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4" asChild>
+                <Link href="/search">
+                  View All Vehicles
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4" asChild>
+                <Link href="/new">
+                  New 2025 Models
+                  <Star className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -305,9 +437,15 @@ export default function HomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
               SERVICES
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Experience luxury beyond the drive with our comprehensive suite of premium services.
             </p>
+            <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4" asChild>
+              <Link href="/services">
+                View All Services
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -338,9 +476,15 @@ export default function HomePage() {
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
               WHY CHOOSE <span className="gold-text">AURORA MOTORS</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               When you choose Aurora Motors, you're not just buying a vehicle—you're investing in a legacy of excellence, innovation, and uncompromising luxury.
             </p>
+            <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4" asChild>
+              <Link href="/about">
+                Learn Our Story
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -494,38 +638,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Contact Information & CTA */}
       <section className="py-20 bg-background border-t border-border/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-foreground mb-8">
-              CONTACT INFORMATION
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-6">
+              READY TO <span className="gold-text">EXPERIENCE LUXURY?</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <h3 className="text-xl font-semibold gold-text mb-2">Visit Us</h3>
-                <p className="text-muted-foreground">
-                  123 Luxury Drive<br />
-                  Premium District<br />
-                  New York, NY 10001
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold gold-text mb-2">Call Us</h3>
-                <p className="text-muted-foreground">
-                  Sales: (555) 123-4567<br />
-                  Service: (555) 123-4568<br />
-                  Mon-Sat: 9AM-8PM
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold gold-text mb-2">Follow Us</h3>
-                <p className="text-muted-foreground">
-                  @auroramotors<br />
-                  Stay updated with our latest models<br />
-                  and exclusive events
-                </p>
-              </div>
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Take the next step in your luxury automotive journey. Contact us today or visit one of our premium showrooms.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-4" asChild>
+                <Link href="/contact">
+                  Contact Us
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground text-lg px-8 py-4" asChild>
+                <Link href="/search">
+                  Explore Vehicles
+                  <Car className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <h3 className="text-xl font-semibold gold-text mb-2">Visit Us</h3>
+              <p className="text-muted-foreground mb-4">
+                123 Luxury Drive<br />
+                Premium District<br />
+                New York, NY 10001
+              </p>
+              <Button variant="outline" size="sm" className="border-accent/20 text-accent hover:bg-accent hover:text-accent-foreground" asChild>
+                <Link href="/contact">
+                  View All Locations
+                </Link>
+              </Button>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold gold-text mb-2">Call Us</h3>
+              <p className="text-muted-foreground mb-4">
+                Sales: (555) 123-4567<br />
+                Service: (555) 123-4568<br />
+                Mon-Sat: 9AM-8PM
+              </p>
+              <Button variant="outline" size="sm" className="border-accent/20 text-accent hover:bg-accent hover:text-accent-foreground" asChild>
+                <Link href="/services">
+                  Schedule Service
+                </Link>
+              </Button>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold gold-text mb-2">Follow Us</h3>
+              <p className="text-muted-foreground mb-4">
+                @auroramotors<br />
+                Stay updated with our latest models<br />
+                and exclusive events
+              </p>
+              <Button variant="outline" size="sm" className="border-accent/20 text-accent hover:bg-accent hover:text-accent-foreground" asChild>
+                <Link href="/about">
+                  Our Story
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
